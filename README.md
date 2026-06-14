@@ -8,7 +8,7 @@ Documenting my journey learning network reconnaissance, port scanning, service d
 - [Basic Scan](nmap/basic-scan.md) - Top 1000 ports
 - [Service Detection](nmap/service-detection.md) - Version fingerprinting
 - [Full Port Scan](nmap/full-port-scan.md) - All 65,535 ports
-- [Firewall Evasion](nmap/firewall-evasion.md) - Filtered ports analysis (coming soon)
+- [Firewall Evasion](nmap/firewall-evasion.md) - Filtered ports analysis 
 
 ### Wireshark
 - [TCP Handshake](wireshark/tcp-handshake.md) - Three-way handshake analysis
@@ -28,7 +28,7 @@ Documenting my journey learning network reconnaissance, port scanning, service d
 - [x] Basic Nmap scan
 - [x] Service detection
 - [x] Full port scan
-- [ ] Firewall evasion
+- [x] Firewall evasion
 - [ ] Wireshark analysis
 - [ ] Netdiscover
 
