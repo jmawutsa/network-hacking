@@ -5,6 +5,8 @@
 **IP:** 192.168.9.130
 **Command:** `nmap 192.168.9.130`
 
+![Basic scan screenshot](basic-scan.png)
+
 ## Results
 
 | PORT     | STATE | SERVICE     |
