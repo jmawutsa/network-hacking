@@ -1,24 +1,47 @@
-# Nmap Full Port Scan
+# Nmap Full Port Scan - Metasploitable 3 (Firewall Disabled)
 
 **Date:** 2026-06-14
-**Target:** Metasploitable 2
-**Command:** `nmap -p- 192.168.9.2`
+**Target:** Metasploitable 3 (Windows VM)
+**IP:** 192.168.9.128
+**Command:** `nmap -p- 192.168.9.128`
 
-## Results (Interesting Ports)
-| Port | Service |
-|------|---------|
-| 1524/tcp | bindshell |
-| 2121/tcp | ftp |
-| 3306/tcp | mysql |
-| 5432/tcp | postgresql |
-| 5900/tcp | vnc |
-| 6667/tcp | irc |
+## Screenshot
+
+![Full port scan screenshot](full-port-scan.png)
+
+## Results (Selected Open Ports)
+
+| PORT      | STATE | SERVICE           |
+|-----------|-------|-------------------|
+| 22/tcp    | open  | ssh               |
+| 135/tcp   | open  | msrpc             |
+| 139/tcp   | open  | netbios-ssn       |
+| 445/tcp   | open  | microsoft-ds      |
+| 3306/tcp  | open  | mysql             |
+| 3389/tcp  | open  | ms-wbt-server     |
+| 5985/tcp  | open  | wsman             |
+| 8080/tcp  | open  | http-proxy        |
+| 8443/tcp  | open  | https-alt         |
+| 47001/tcp | open  | winrm             |
+| 49152-49405| open | various (RPC/DCOM)|
+
+## Key Observations
+
+- **Firewall was disabled** for this scan
+- Much more open ports than before (40+)
+- Key services: SSH (22), RDP (3389), MySQL (3306), WinRM (5985)
+- SMB ports (139, 445) open — potential for lateral movement
 
 ## What I Learned
-- Many services run on non-standard ports
-- Port 1524 (Ingreslock) gives a root shell with `nc`
-- Scanning all 65,535 ports takes 2-5 minutes
-- Don't skip this — hidden services are often the easiest targets
+
+- Firewall makes a HUGE difference
+- With firewall off, Windows reveals many services
+- Full scan of 65k ports took 23 seconds
+- `-p-` scans all ports, not just top 1000
 
 ## Next Steps
-Connect to port 1524 with netcat
+
+- Test WinRM with `evil-winrm`
+- Check MySQL default credentials
+- Enumerate SMB shares
+- Scan with `-sV` to identify versions
