@@ -1,4 +1,4 @@
-# Network Hacking Labs
+# Network Reconnaissance Labs
 
 Documenting my journey learning network reconnaissance, port scanning, service detection, traffic analysis, and firewall evasion.
 
